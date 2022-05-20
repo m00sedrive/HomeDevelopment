@@ -1,0 +1,62 @@
+﻿@page "{searchString?}"
+@model IEnumerable<CountryISOCodeSearch.Models.Country>
+@{  
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "All Counties";
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">Country ISO Code Search</h1>
+    <p>Enter a 2-3 Character Country ISO Code to search the listed of Countries:</p>
+    <br>
+
+    @*<form>
+        <p>
+            Title: <input type="text" asp-for="SearchString" />
+            <input type="submit" value="Filter" />
+        </p>
+    </form>*@
+
+    <br>
+
+    @*@if (Model.UserErrorMessage.Length == 0)
+    {*@
+        <table class="table table-condensed table-hover">
+            <thead>
+                <tr>
+                    <th>Country Name</th>
+                    <th>Region</th>
+                    <th>Captial City</th>
+                    <th>Longitude</th>
+                    <th>Latitude</th>
+                    <th>ID</th>
+                    <th>Iso2Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var country in ViewData["Country Data"] as IList<CountryISOSearch.Models.Country>)
+                {
+                    <tr>
+                        <td>@country.Name</td>
+                        <td>@country.Region.Value</td>
+                        <td>@country.CapitalCity</td>
+                        <td>@country.Longitude</td>
+                        <td>@country.Latitude</td>
+                        <td>@country.Id</td>
+                        <td>@country.Iso2Code</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        //}
+    @*else
+    {
+        <p>@userErrorMessage</p>
+    }*@
+
+
+
+</div>
+
+
